@@ -1,7 +1,7 @@
 ##1. buble sort descending order
 ## 7,5,1,2,3
-##(7523)1  i=0  j=0-3 > four iteration 4 gap  5-i-1
-##(753)21   i=1 j=1 -4  > three gap 3 iteration 5-i-1
+##(7523)1  i=0  j=0->5-i-1> four iteration 4 gap  5-i-1
+##(753)21   i=1 j=1 ->  > three gap 3 iteration 5-i-1
 
 
 #  comparison based >> (n-1)+(n-2)+(n-3)+(n-4)......3+2+1 = n(n-1)/2  =(n-1)(n-1+1)/2 O(n*2) >> bubble sort 
@@ -53,7 +53,27 @@ result = bubblesort(arr)
 print(result)
 
 
+# Optimized Code
 
+def bubblesort(arr):
+    for i in range(len(arr)):
+        swapped = False
+        for  j in range(len(arr)-i-1): # elements beyond that are already sorted
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
+        if not swapped:
+            break
+    return arr
 
+# Worst Case: Still O(n²) when the array is reverse sorted (e.g., [5,4,3,2,1]), as it requires all passes and swaps.
+# Best Case: Now O(n) when the array is already sorted (e.g., [1,2,3,4,5]), because after the first pass with no swaps, it exits.
+# For arr = [1, 2, 3, 4, 5]:
 
+# Original: Runs 5 passes, 10 comparisons total, even though it’s sorted.
+# Optimized: Runs 1 pass, 4 comparisons, sees no swaps, and stops.
+# For arr = [5, 4, 3, 2, 1]:
 
+# Both versions run 5 passes, 10 comparisons, fully sorting it to [1, 2, 3, 4, 5].
+
+# Space Complexity: Remains O(1).
