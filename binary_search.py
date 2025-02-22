@@ -35,5 +35,13 @@ x = 4
 i=0
 j = len(arr)-1
 
+# With each recursive call, the search space is roughly halved.
+# The recursion depth is logarithmic in the size of the input array, specifically O(log(n)), 
+# where n is the length of the array.
+
+
+# The function uses recursive calls, which create a new stack frame for each call.
+# The maximum recursion depth is O(log n), which means the space complexity is also O(log n).
+
 result = binarySearch(arr,i,j,x)
 print(result)

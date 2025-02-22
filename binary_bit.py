@@ -3,6 +3,7 @@
 # print(bin(4)) #100
 
 def append_bits(x,L):
+    print([x + element for element in L])
     return [x + element for element in L]
 
 def generate_bit(n):
@@ -16,7 +17,11 @@ def generate_bit(n):
 
         return (append_bits('0',generate_bit(n-1)) + append_bits('1',generate_bit(n-1)))
 
+
 print(generate_bit(3))
+# The time complexity of the append_bits function is O(k), where k is the length of the input list.
+# Since the generate_bit function makes two recursive calls, the time complexity is roughly doubled in each call.
+# The recursion depth is n, and the time complexity at each level is O(2^k), where k is the current level.
 
-
-##2. find time complexity
+# The function stores the results of each recursive call in memory.
+# The space complexity at each level is O(2^k), where k is the current level.
