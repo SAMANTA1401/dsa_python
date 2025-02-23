@@ -1,9 +1,9 @@
-# complete binary tree >> heap base datastructure
-# condtion:
-# 1. first complete initial level then move to next level
+# complete binary tree >> heap base data structure
+# condition:
+# 1. first complete initial level then move to next level (BFS) Breadth-first search
 # 2. first complete left child node then move to right child node
 
-# almost complete binary tree one leaf Node    Very less watage of space
+# almost complete binary tree one leaf Node    Very less wastage of space
 
 # n = number of nodes
 # k = number of level
@@ -29,7 +29,7 @@
 
 # time complexity  O(1) = constant best case complexity
 
-# insertion of minheap into array :
+# insertion of min heap into array :
 # 1. create a empty heap with size n/2
 # 2. start from last non leaf node and insert all the elements in heap ...
 # 3. once all are inserted , swap the root element with last element of heap .....
@@ -51,26 +51,26 @@
 # insertion  time complexity = O(log_2(n)) worst case
 
 # if the no of elements = n*2^n
-# then the time complecxity=log(n*2^n)
+# then the time complexity =log(n*2^n)
 # = log n + log*2^n
 
-# in the case of deletion , deletionn happens from the root node and last element of the heap is taken to the root node . 
-# so condtion for min heap violated and to validate the heap root element is compare to the both child element 
-# so comparison happen 2*logn (for both left and right child  ) from root node and continue to the leaf node
+# in the case of deletion , deletion happens from the root node and last element of the heap is taken to the root node . 
+# so condition for min heap violated and to validate the heap root element is compare to the both child element 
+# so comparison happen 2*log n (for both left and right child  ) from root node and continue to the leaf node
  
 # number of swap log_2(n)
 
 
-# heap sort is comparison based sorting alagorithm : 
-# when ever we delete an element the smallest elemet is deleted if we append this deleted element in a array
+# heap sort is comparison based sorting algorithm : 
+# when ever we delete an element the smallest element is deleted if we append this deleted element in a array
 # we get sorted element in ascending order from min heap 
 
 # for max heap we get descending order of elements . as greatest element was deleted
     
-# overall time complecxity depends on the of comparison and no of swaps
+# overall time complexity depends on the of comparison and no of swaps
 # for each deletion time complexity is O(log_2(n))
-# and for deletion of  n number of eliments  n*logn
-# so for sorting the overall timecomplexity is O(nlog_2(n))
+# and for deletion of  n number of elements  n*log n
+# so for sorting the overall time complexity is O(n*log_2(n))
 
 
 # time complexity to build a heap is O(n) >> heapfy method
@@ -80,11 +80,11 @@
 
 # # https://www.youtube.com/watch?v=AxALCZMo01Y&list=PLZoTAELRMXVPLDezwZ74wFhXvV5PaA2G2&index=7
 
-# hapsort alagorithm:
+# heap sort algorithm:
 # 1. build a min heap or max heap from the array (increasing or decreasing sorted function) >>O(n)
-# 2. delete all the elements step by step  (and share those deleted element in any data structure) >>O(nlog_2(n))
+# 2. delete all the elements step by step  (and share those deleted element in any data structure) >>O(n*log_2(n))
 
-# time complecxity = O(nlog_2(n)) +O(n) >> O(nlog_2(n))
+# time complexity = O(nlog_2(n)) +O(n) >> O(nlog_2(n))
 
 # implementation : using heapq package:
 
@@ -97,7 +97,7 @@ def topKfrequentElement(arr, k):
         return set(arr)
     
     count = Counter(arr)
-    # count is dictionary whiich contains unique values as the key and the frequency of those unique wlments as the value                           
+    # count is dictionary which contains unique values as the key and the frequency of those unique wlments as the value                           
     print(count)
     return heapq.nlargest(k, count.keys(), key=count.get)
 
