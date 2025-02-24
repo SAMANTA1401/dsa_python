@@ -2,14 +2,26 @@ import unittest
 
 def selectionSort(arr):
     n = len(arr)
+    if n <= 1:  # Early return for empty or single-element array
+        return arr
     for i in range(n):
         min_index = i
         for j in range(i+1,n):
             if arr[j] < arr[min_index]:
                 min_index = j
-                #swap of the element at i and min index
-                arr[i], arr[min_index] = arr[min_index],arr[i]
+        # Swap only if a smaller element was found
+        if min_index != i:
+            #swap of the element at i and min index
+            arr[i], arr[min_index] = arr[min_index],arr[i]
     return arr
+
+# Time Complexity
+# Worst Case: O(n²) – compares every pair in the unsorted portion (e.g., reverse sorted array).
+# Best Case: O(n²) – still performs all comparisons, even if already sorted (unlike insertion sort).
+# Average Case: O(n²).
+# The optimization doesn’t affect asymptotic complexity but reduces constant factors (fewer swaps).
+# Space Complexity
+# O(1) – in-place sorting, only uses a few variables (n, i, j, min_index).
 
 class TestSelectionSort(unittest.TestCase):
     def test_empty_array(self):
